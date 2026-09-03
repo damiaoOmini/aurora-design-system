@@ -1,0 +1,37 @@
+{
+  "name": "Navigation/Global",
+  "id": "navigation-global",
+  "version": "0.1.0",
+  "status": "draft",
+  "classification": {"scope": "core", "category": "navigation", "confidence": "high"},
+  "source": {"system": "Aurora Design System", "figmaFileKey": "mgndALfRjfTYZtMI7ARgFd", "figmaNodeId": "19257:2729", "componentSet": "Navigation/Global"},
+  "purpose": "Render Aurora's persistent global application navigation in its approved expanded and collapsed compositions.",
+  "properties": {"Expanded": {"type": "VARIANT", "defaultValue": "True", "options": ["True", "False"]}},
+  "variants": {
+    "Expanded=True": {
+      "nodeId": "19257:2593", "width": 380, "height": 1108,
+      "layout": {"direction": "vertical", "gap": 8, "padding": {"top": 16, "right": 16, "bottom": 16, "left": 16}},
+      "anatomy": ["Brand", "Search", "Navigation content", "Utilities"],
+      "brand": {"width": 348, "height": 64, "padding": 12, "gap": 12, "children": ["menu-01 24x24", "Brand/Logo/Gestor Appearance=Inverse 66x21"]},
+      "search": {"width": 348, "height": 48, "padding": 12, "gap": 12, "radius": 8, "children": ["search-md 24x24", "Pesquisar text 14/20"]},
+      "navigationContent": {"width": 348, "height": 828, "uses": ["Navigation/Item", "Navigation/Group"]},
+      "utilities": {"width": 348, "height": 112, "children": ["Configurações via Navigation/Item", "User profile 348x64"]}
+    },
+    "Expanded=False": {
+      "nodeId": "19257:2690", "width": 56, "height": 1108,
+      "layout": {"direction": "vertical", "gap": 8, "padding": {"top": 16, "right": 4, "bottom": 16, "left": 4}},
+      "anatomy": ["Brand", "Search", "Navigation content", "Utilities"],
+      "brand": {"width": 48, "height": 48, "children": ["menu-01 24x24"]},
+      "search": {"width": 48, "height": 48, "children": ["search-md 24x24"]},
+      "navigationContent": {"width": 48, "height": 836, "composition": "Dedicated 48x48 Navigation icon frames; do not approximate by merely hiding labels from the expanded variant."},
+      "utilities": {"width": 48, "height": 96, "children": ["Settings navigation icon 48x48", "User profile 48x48"]}
+    }
+  },
+  "dependencies": ["navigation-item", "navigation-group", "menu-01", "search-md", "Brand/Logo/Gestor", "Aurora global-navigation icons", "User profile"],
+  "tokenRules": ["Preserve Figma-bound Aurora semantic variables for background, foreground, text and state colors.", "Do not replace token bindings with visually similar hard-coded values when token references are available."],
+  "behaviorBoundary": ["This component contract defines approved visual structure and variants, not routing, permission logic, persistence or responsive transformation rules."],
+  "aiInstructions": {
+    "must": ["Use one of the two approved Expanded variants.", "Preserve the exact variant anatomy.", "Reuse approved Aurora icons and Gestor logo.", "Use Navigation/Item and Navigation/Group contracts for navigation content."],
+    "mustNot": ["Replace Aurora icons with letters, emoji or generic substitutes.", "Invent a separate Omnilink header inside this component.", "Remove Brand, Search or Utilities from Expanded=True without explicit product evidence.", "Treat Expanded=False as Expanded=True with CSS-hidden labels only.", "Approximate missing visual information; stop and declare the gap instead."]
+  }
+}
