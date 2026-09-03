@@ -1,0 +1,97 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaComponentSet": "Checkbox",
+    "figmaNodeId": "1097:63652",
+    "variantCount": 72,
+    "type": "component",
+    "scope": "core",
+    "baseComponentSet": "_Checkbox base"
+  },
+  "variantAxes": {
+    "checked": [false, true],
+    "indeterminate": [false, true],
+    "size": ["sm", "md"],
+    "type": ["Checkbox", "Radio"],
+    "text": [false, true],
+    "state": ["Default", "Hover", "Focused", "Disabled"]
+  },
+  "combinationPolicy": {
+    "availableVariantCount": 72,
+    "fullCartesianCount": 128,
+    "rule": "Do not assume every theoretical combination of Checked, Indeterminate, Size, Type, Text and State exists. Use only combinations represented by the approved component set."
+  },
+  "properties": {
+    "supportingText": { "type": "boolean", "default": true }
+  },
+  "sizes": {
+    "sm": {
+      "controlSize": 16,
+      "controlDimensions": "16x16",
+      "observedComponentWidths": [16, 344],
+      "observedComponentHeights": [16, 40]
+    },
+    "md": {
+      "controlSize": 20,
+      "controlDimensions": "20x20",
+      "observedComponentWidths": [20, 344],
+      "observedComponentHeights": [20, 50]
+    }
+  },
+  "anatomy": {
+    "core": ["_Checkbox base"],
+    "withText": ["Input", "Text and supporting text", "Text", "Supporting text"],
+    "selectionIndicators": ["check", "minus"],
+    "dependenciesObserved": ["_Checkbox base", "check", "minus"]
+  },
+  "typography": {
+    "sm": {
+      "label": { "size": 14, "weight": "medium" },
+      "supportingText": { "size": 14, "weight": "regular" }
+    },
+    "md": {
+      "label": { "size": 16, "weight": "medium" },
+      "supportingText": { "size": 16, "weight": "regular" }
+    },
+    "boundTokens": [
+      "Font family/font-family-body",
+      "Font size/text-sm",
+      "Font size/text-md",
+      "Font weight/regular",
+      "Font weight/medium",
+      "Line height/text-sm",
+      "Line height/text-md"
+    ]
+  },
+  "boundTokens": {
+    "background": [
+      "Colors/Background/bg-brand-solid",
+      "Colors/Background/bg-primary",
+      "Colors/Background/bg-tertiary"
+    ],
+    "border": ["Colors/Border/border-primary"],
+    "foreground": ["Colors/Foreground/fg-white"],
+    "text": [
+      "Colors/Text/text-secondary (700)",
+      "Colors/Text/text-tertiary (600)"
+    ],
+    "effects": ["Colors/Effects/Focus rings/focus-ring"],
+    "radius": ["radius-full"],
+    "spacing": [
+      "spacing-xxs",
+      "spacing-xs",
+      "spacing-sm",
+      "spacing-md",
+      "spacing-lg"
+    ]
+  },
+  "rules": {
+    "doNotInventVariants": true,
+    "doNotInventStates": true,
+    "doNotAssumeCartesianVariants": true,
+    "useSemanticColorTokens": true,
+    "preserveApprovedControlSizes": true,
+    "preserveIndeterminateAsIndependentAxis": true,
+    "note": "The Figma Checkbox component set also contains Type=Radio. This contract records the source structure faithfully. Radio will be evaluated separately before deciding whether Aurora documentation should expose it as a distinct public component contract. Do not infer form behavior, selection-group logic, keyboard behavior, accessibility attributes or framework implementation from the visual component alone."
+  }
+}
