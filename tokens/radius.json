@@ -1,0 +1,22 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaCollection": "2. Radius",
+    "figmaMode": "Mode 1",
+    "type": "dimension",
+    "tokenCount": 11
+  },
+  "radius": {
+    "radius-none": { "value": 0, "unit": "px" },
+    "radius-xxs": { "value": 2, "unit": "px" },
+    "radius-xs": { "value": 4, "unit": "px" },
+    "radius-sm": { "value": 6, "unit": "px" },
+    "radius-md": { "value": 8, "unit": "px" },
+    "radius-lg": { "value": 10, "unit": "px" },
+    "radius-xl": { "value": 12, "unit": "px" },
+    "radius-2xl": { "value": 16, "unit": "px" },
+    "radius-3xl": { "value": 20, "unit": "px" },
+    "radius-4xl": { "value": 24, "unit": "px" },
+    "radius-full": { "value": 9999, "unit": "px" }
+  }
+}
