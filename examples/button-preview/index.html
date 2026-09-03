@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurora Button Preview</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="page">
+    <p class="eyebrow">Aurora Design System · Repository-driven preview</p>
+    <h1>Button</h1>
+    <p class="lead">Preview gerada exclusivamente a partir dos contratos e tokens já documentados no repositório Aurora, sem consultar o Figma durante a construção desta página.</p>
+
+    <section class="panel">
+      <h2>Hierarquias × tamanhos</h2>
+      <p>As cinco hierarquias e os cinco tamanhos definidos no contrato <code>components/button.json</code>.</p>
+
+      <div class="button-grid" aria-label="Button hierarchy and size matrix">
+        <div></div>
+        <div class="size-label">xs · 32px</div>
+        <div class="size-label">sm · 36px</div>
+        <div class="size-label">md · 40px</div>
+        <div class="size-label">lg · 44px</div>
+        <div class="size-label">xl · 48px</div>
+
+        <div class="grid-label">Primary</div>
+        <button class="au-button au-button--primary au-button--xs">Button CTA</button>
+        <button class="au-button au-button--primary au-button--sm">Button CTA</button>
+        <button class="au-button au-button--primary au-button--md">Button CTA</button>
+        <button class="au-button au-button--primary au-button--lg">Button CTA</button>
+        <button class="au-button au-button--primary au-button--xl">Button CTA</button>
+
+        <div class="grid-label">Secondary</div>
+        <button class="au-button au-button--secondary au-button--xs">Button CTA</button>
+        <button class="au-button au-button--secondary au-button--sm">Button CTA</button>
+        <button class="au-button au-button--secondary au-button--md">Button CTA</button>
+        <button class="au-button au-button--secondary au-button--lg">Button CTA</button>
+        <button class="au-button au-button--secondary au-button--xl">Button CTA</button>
+
+        <div class="grid-label">Tertiary</div>
+        <button class="au-button au-button--tertiary au-button--xs">Button CTA</button>
+        <button class="au-button au-button--tertiary au-button--sm">Button CTA</button>
+        <button class="au-button au-button--tertiary au-button--md">Button CTA</button>
+        <button class="au-button au-button--tertiary au-button--lg">Button CTA</button>
+        <button class="au-button au-button--tertiary au-button--xl">Button CTA</button>
+
+        <div class="grid-label">Link color</div>
+        <button class="au-button au-button--link-color au-button--xs">Button CTA</button>
+        <button class="au-button au-button--link-color au-button--sm">Button CTA</button>
+        <button class="au-button au-button--link-color au-button--md">Button CTA</button>
+        <button class="au-button au-button--link-color au-button--lg">Button CTA</button>
+        <button class="au-button au-button--link-color au-button--xl">Button CTA</button>
+
+        <div class="grid-label">Link gray</div>
+        <button class="au-button au-button--link-gray au-button--xs">Button CTA</button>
+        <button class="au-button au-button--link-gray au-button--sm">Button CTA</button>
+        <button class="au-button au-button--link-gray au-button--md">Button CTA</button>
+        <button class="au-button au-button--link-gray au-button--lg">Button CTA</button>
+        <button class="au-button au-button--link-gray au-button--xl">Button CTA</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Estados aprovados</h2>
+      <p>O contrato confirma estes estados como válidos.</p>
+      <div class="state-list">
+        <span class="state-chip">Default</span>
+        <span class="state-chip">Hover</span>
+        <span class="state-chip">Focused</span>
+        <span class="state-chip">Disabled</span>
+        <span class="state-chip">Loading</span>
+      </div>
+      <p class="note"><strong>Regra desta preview:</strong> Default, Hover e Focus usam os tokens já resolvidos no repositório. Disabled e Loading aparecem como estados suportados, mas não receberam aparência inventada porque o contrato atual ainda não descreve todos os detalhes visuais necessários para reproduzi-los com segurança.</p>
+    </section>
+
+    <section class="panel">
+      <h2>O que o repositório já consegue instruir</h2>
+      <div class="contract">
+        <div class="contract-card"><strong>5 tamanhos</strong><span>xs, sm, md, lg, xl</span></div>
+        <div class="contract-card"><strong>5 hierarquias</strong><span>Primary até Link gray</span></div>
+        <div class="contract-card"><strong>5 estados</strong><span>Default até Loading</span></div>
+        <div class="contract-card"><strong>Tokens conectados</strong><span>Color, Spacing, Radius, Typography e Effects</span></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
