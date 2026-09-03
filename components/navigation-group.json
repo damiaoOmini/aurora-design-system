@@ -1,0 +1,18 @@
+{
+  "name": "Navigation/Group",
+  "id": "navigation-group",
+  "version": "0.1.0",
+  "status": "draft",
+  "classification": {"scope": "core", "category": "navigation", "confidence": "high"},
+  "source": {"system": "Aurora Design System", "figmaFileKey": "mgndALfRjfTYZtMI7ARgFd", "figmaNodeId": "19257:2592", "componentSet": "Navigation/Group"},
+  "purpose": "Group one Level 1 global-navigation item with its approved Level 2 descendants.",
+  "properties": {"Expanded": {"type": "VARIANT", "defaultValue": "False", "options": ["False", "True"]}},
+  "variants": {
+    "Expanded=False": {"nodeId": "19257:2555", "width": 348, "height": 48, "layout": {"direction": "vertical", "gap": 0}, "children": ["Navigation/Item Level=1, Has children=True"]},
+    "Expanded=True": {"nodeId": "19257:2563", "width": 348, "height": 192, "layout": {"direction": "vertical", "gap": 0}, "children": ["Navigation/Item Level=1, Has children=True", "Navigation/Item Level=2", "Navigation/Item Level=2", "Navigation/Item Level=2"]}
+  },
+  "observedExample": {"parent": "Cadastros", "children": ["Veículos", "Motoristas", "Empresas"]},
+  "compositionRules": ["The parent must be Navigation/Item Level=1 with Has children=True.", "Level 2 descendants use Navigation/Item Level=2.", "Expanded=False renders only the parent item.", "Expanded=True renders the parent followed by its Level 2 descendants.", "Indentation belongs to Navigation/Item Level=2, not to an improvised external wrapper."],
+  "dependencies": ["navigation-item", "chevron-down", "Aurora global-navigation icons"],
+  "aiInstructions": {"must": ["Use only approved Expanded variants.", "Compose children from Navigation/Item."], "mustNot": ["Create orphan Level 2 items.", "Invent deeper hierarchy.", "Replace the chevron or icons with generic substitutes.", "Approximate missing structure when source evidence is unavailable."]}
+}
