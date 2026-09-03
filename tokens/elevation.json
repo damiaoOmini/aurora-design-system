@@ -1,0 +1,51 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaSource": "Local Effect Styles",
+    "effectStyleCount": 26,
+    "elevationStyleCount": 8,
+    "type": "effect"
+  },
+  "elevation": {
+    "shadow-xs": [
+      { "type": "drop-shadow", "x": 0, "y": 1, "blur": 2, "spread": 0, "color": "#0000000D" }
+    ],
+    "shadow-xs-skeuomorphic": [
+      { "type": "drop-shadow", "x": 0, "y": 1, "blur": 2, "spread": 0, "color": "#0000000D" },
+      { "type": "inner-shadow", "x": 0, "y": -2, "blur": 0, "spread": 0, "color": "#0000000D" },
+      { "type": "inner-shadow", "x": 0, "y": 0, "blur": 0, "spread": 1, "color": "#0000002E" }
+    ],
+    "shadow-sm": [
+      { "type": "drop-shadow", "x": 0, "y": 1, "blur": 2, "spread": -1, "color": "#0000001A" },
+      { "type": "drop-shadow", "x": 0, "y": 1, "blur": 3, "spread": 0, "color": "#0000001A" }
+    ],
+    "shadow-md": [
+      { "type": "drop-shadow", "x": 0, "y": 2, "blur": 4, "spread": -2, "color": "#0000000F" },
+      { "type": "drop-shadow", "x": 0, "y": 4, "blur": 6, "spread": -1, "color": "#0000001A" }
+    ],
+    "shadow-lg": [
+      { "type": "drop-shadow", "x": 0, "y": 2, "blur": 2, "spread": -1, "color": "#0000000A" },
+      { "type": "drop-shadow", "x": 0, "y": 4, "blur": 6, "spread": -2, "color": "#00000008" },
+      { "type": "drop-shadow", "x": 0, "y": 12, "blur": 16, "spread": -4, "color": "#00000014" }
+    ],
+    "shadow-xl": [
+      { "type": "drop-shadow", "x": 0, "y": 3, "blur": 3, "spread": -1.5, "color": "#0000000A" },
+      { "type": "drop-shadow", "x": 0, "y": 8, "blur": 8, "spread": -4, "color": "#00000008" },
+      { "type": "drop-shadow", "x": 0, "y": 20, "blur": 24, "spread": -4, "color": "#00000014" }
+    ],
+    "shadow-2xl": [
+      { "type": "drop-shadow", "x": 0, "y": 4, "blur": 4, "spread": -2, "color": "#0000000A" },
+      { "type": "drop-shadow", "x": 0, "y": 24, "blur": 48, "spread": -12, "color": "#0000002E" }
+    ],
+    "shadow-3xl": [
+      { "type": "drop-shadow", "x": 0, "y": 5, "blur": 5, "spread": -2.5, "color": "#0000000A" },
+      { "type": "drop-shadow", "x": 0, "y": 32, "blur": 64, "spread": -12, "color": "#00000024" }
+    ]
+  },
+  "relatedEffects": {
+    "focusRings": 7,
+    "backdropBlurs": 4,
+    "portfolioMockupShadows": 5,
+    "avatarEffects": 2
+  }
+}
