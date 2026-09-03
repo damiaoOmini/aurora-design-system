@@ -1,0 +1,28 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaCollection": "3. Spacing",
+    "figmaMode": "Mode 1",
+    "type": "dimension",
+    "tokenCount": 17
+  },
+  "spacing": {
+    "spacing-none": { "alias": "Spacing/0 (0px)", "value": 0, "unit": "px" },
+    "spacing-xxs": { "alias": "Spacing/0․5 (2px)", "value": 2, "unit": "px" },
+    "spacing-xs": { "alias": "Spacing/1 (4px)", "value": 4, "unit": "px" },
+    "spacing-sm": { "alias": "Spacing/1․5 (6px)", "value": 6, "unit": "px" },
+    "spacing-md": { "alias": "Spacing/2 (8px)", "value": 8, "unit": "px" },
+    "spacing-lg": { "alias": "Spacing/3 (12px)", "value": 12, "unit": "px" },
+    "spacing-xl": { "alias": "Spacing/4 (16px)", "value": 16, "unit": "px" },
+    "spacing-2xl": { "alias": "Spacing/5 (20px)", "value": 20, "unit": "px" },
+    "spacing-3xl": { "alias": "Spacing/6 (24px)", "value": 24, "unit": "px" },
+    "spacing-4xl": { "alias": "Spacing/8 (32px)", "value": 32, "unit": "px" },
+    "spacing-5xl": { "alias": "Spacing/10 (40px)", "value": 40, "unit": "px" },
+    "spacing-6xl": { "alias": "Spacing/12 (48px)", "value": 48, "unit": "px" },
+    "spacing-7xl": { "alias": "Spacing/16 (64px)", "value": 64, "unit": "px" },
+    "spacing-8xl": { "alias": "Spacing/20 (80px)", "value": 80, "unit": "px" },
+    "spacing-9xl": { "alias": "Spacing/24 (96px)", "value": 96, "unit": "px" },
+    "spacing-10xl": { "alias": "Spacing/32 (128px)", "value": 128, "unit": "px" },
+    "spacing-11xl": { "alias": "Spacing/40 (160px)", "value": 160, "unit": "px" }
+  }
+}
