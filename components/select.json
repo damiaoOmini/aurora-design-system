@@ -1,0 +1,80 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaComponentSet": "Select",
+    "figmaNodeId": "3281:377673",
+    "variantCount": 90,
+    "type": "component",
+    "scope": "core",
+    "relatedSeparateComponent": "Multi-select"
+  },
+  "variantAxes": {
+    "size": ["sm", "md", "lg"],
+    "type": ["Default", "Icon leading", "Avatar leading", "Dot leading", "Search", "Tags"],
+    "state": ["Placeholder", "Default", "Focused", "Open", "Disabled"]
+  },
+  "combinationPolicy": {
+    "availableVariantCount": 90,
+    "fullCartesianCount": 90,
+    "rule": "All combinations across Size, Type and State are represented by the approved component set."
+  },
+  "properties": {
+    "label": { "type": "boolean", "default": true },
+    "hintText": { "type": "boolean", "default": true },
+    "supportingText": { "type": "boolean", "default": true },
+    "scrollBar": { "type": "boolean", "default": true },
+    "iconSwap": { "type": "instance-swap" },
+    "requiredIndicator": { "type": "boolean", "default": true },
+    "helpIcon": { "type": "boolean", "default": true },
+    "shortcut": { "type": "boolean", "default": true }
+  },
+  "sizes": {
+    "sm": { "controlHeight": 36, "closedTotalHeight": 86, "openTotalHeight": 62, "observedWidths": [320, 400] },
+    "md": { "controlHeight": 40, "closedTotalHeight": 92, "openTotalHeight": 66, "observedWidths": [320, 400] },
+    "lg": { "controlHeight": 44, "closedTotalHeight": 96, "openTotalHeight": 70, "observedWidths": [320, 400] }
+  },
+  "anatomy": {
+    "core": ["Input with label", "Label wrapper", "Input", "Content", "Text and supporting text"],
+    "optional": ["Label", "Required indicator", "Hint text", "Supporting text", "Help icon", "Leading icon", "Avatar", "Dot", "Search icon", "Tags", "Shortcut", "Chevron"],
+    "openState": ["Menu", "Menu items", "_Select menu item", "Scroll bar"],
+    "dependenciesObserved": ["_Select menu item", "Avatar", "Tag", "Help icon", "icons", "_Scroll bar (control fill with bottom padding)"]
+  },
+  "typography": {
+    "label": { "size": 14, "weight": "medium", "lineHeight": 20 },
+    "value": { "size": 16, "weight": "medium" },
+    "supportingText": { "sizes": [14, 16], "weight": "regular" },
+    "hintText": { "sizes": [12, 14], "weight": "regular" },
+    "shortcut": { "size": 12, "weight": "medium" },
+    "boundTokens": [
+      "Font family/font-family-body",
+      "Font size/text-xs",
+      "Font size/text-sm",
+      "Font size/text-md",
+      "Font weight/regular",
+      "Font weight/medium",
+      "Line height/text-xs",
+      "Line height/text-sm",
+      "Line height/text-md"
+    ]
+  },
+  "boundTokens": {
+    "background": ["Colors/Background/bg-primary", "Colors/Background/bg-primary_hover"],
+    "border": ["Colors/Border/border-primary", "Colors/Border/border-secondary", "Colors/Border/border-secondary_alt", "Colors/Border/border-brand"],
+    "foreground": ["Colors/Foreground/fg-quaternary (400)", "Colors/Foreground/fg-brand-primary (600)", "Colors/Foreground/fg-success-secondary"],
+    "text": ["Colors/Text/text-primary (900)", "Colors/Text/text-secondary (700)", "Colors/Text/text-tertiary (600)", "Colors/Text/text-quaternary (500)", "Colors/Text/text-placeholder", "Colors/Text/text-brand-tertiary (600)"],
+    "effects": ["Colors/Effects/Shadows/shadow-xs", "Colors/Effects/Shadows/shadow-lg_01", "Colors/Effects/Shadows/shadow-lg_02", "Colors/Effects/Shadows/shadow-lg_03"],
+    "radius": ["radius-xs", "radius-sm", "radius-md", "radius-full"],
+    "spacing": ["spacing-xxs", "spacing-xs", "spacing-sm", "spacing-md", "spacing-lg"],
+    "alpha": ["Component colors/Alpha/alpha-black-100", "Component colors/Alpha/alpha-white-100"]
+  },
+  "rules": {
+    "doNotInventTypes": true,
+    "doNotInventStates": true,
+    "allCartesianVariantsApproved": true,
+    "useSemanticColorTokens": true,
+    "preserveApprovedControlHeights": true,
+    "treatOpenStateAsComposite": true,
+    "keepMultiSelectSeparate": true,
+    "note": "This contract describes the visual and structural Select decisions encoded in Figma. It does not infer data loading, keyboard navigation, filtering logic, selection persistence, accessibility attributes, or framework implementation unless separately documented."
+  }
+}
