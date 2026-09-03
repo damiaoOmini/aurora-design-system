@@ -1,0 +1,219 @@
+{
+  "name": "Application Shell",
+  "id": "application-shell",
+  "version": "0.1.0",
+  "status": "draft",
+  "classification": {
+    "scope": "core",
+    "category": "navigation",
+    "confidence": "high"
+  },
+  "purpose": "Define the persistent structural frame that organizes the main Aurora application environment, separating global application context, navigation and product workspace.",
+  "problem": "Without a consistent application shell, products can recreate global navigation, mix global and local responsibilities, duplicate headers and alter workspace hierarchy in inconsistent ways.",
+  "whenToUse": [
+    "Authenticated Aurora application workspaces that require global navigation.",
+    "Product or module experiences that live inside the main Aurora environment.",
+    "Operational workspaces, dashboards, listings, maps and monitoring experiences that share the global application frame."
+  ],
+  "whenNotToUse": [
+    "Public pages, isolated authentication experiences, landing pages or standalone experiences are not yet validated uses of this pattern."
+  ],
+  "evidence": [
+    {
+      "type": "figma",
+      "fileKey": "mgndALfRjfTYZtMI7ARgFd",
+      "nodeId": "19278:327",
+      "observation": "Header/Hero, Navigation/Global and Workspace surface remain present while a contextual notification panel opens.",
+      "confidence": "high"
+    },
+    {
+      "type": "figma",
+      "fileKey": "mgndALfRjfTYZtMI7ARgFd",
+      "nodeId": "19471:1938",
+      "observation": "Header/Hero, Navigation/Global, Breadcrumbs and a product workspace compose an ERP operational screen.",
+      "confidence": "high"
+    },
+    {
+      "type": "figma",
+      "fileKey": "mgndALfRjfTYZtMI7ARgFd",
+      "nodeId": "19920:3497",
+      "observation": "The same shell structure is preserved when the workspace content is an Empty State.",
+      "confidence": "high"
+    },
+    {
+      "type": "figma",
+      "fileKey": "mgndALfRjfTYZtMI7ARgFd",
+      "nodeId": "19920:3853",
+      "observation": "The same application shell is reused for an operational videowall workspace.",
+      "confidence": "high"
+    }
+  ],
+  "anatomy": [
+    {
+      "region": "global-header",
+      "required": true,
+      "purpose": "Provide persistent global application context and global actions."
+    },
+    {
+      "region": "global-navigation",
+      "required": true,
+      "purpose": "Provide navigation between major products, tools or application areas."
+    },
+    {
+      "region": "application-workspace",
+      "required": true,
+      "purpose": "Host the active product or feature experience."
+    },
+    {
+      "region": "context-navigation",
+      "required": false,
+      "purpose": "Provide contextual orientation such as breadcrumbs inside the workspace context."
+    }
+  ],
+  "components": {
+    "required": [
+      "application-navigation"
+    ],
+    "optional": [
+      "breadcrumbs"
+    ],
+    "observedDependencies": [
+      "Header/Hero"
+    ]
+  },
+  "compositionRules": [
+    "Global navigation must remain outside feature content.",
+    "The global header belongs to the shell and must not be recreated inside individual feature screens.",
+    "Breadcrumbs belong to workspace context and must not replace global or product navigation.",
+    "The workspace may contain dashboards, tables, maps, videowalls, empty states and contextual panels without changing the shell hierarchy.",
+    "Contextual overlays may coexist with the shell when the underlying application context must remain available.",
+    "Feature-specific navigation must remain inside the product or workspace context."
+  ],
+  "behavior": {
+    "navigation": "partially-observed",
+    "globalNavigationExpansion": "observed",
+    "routing": "undocumented",
+    "statePersistence": "undocumented",
+    "keyboardBehavior": "undocumented",
+    "focusManagement": "undocumented"
+  },
+  "states": [
+    {
+      "name": "default",
+      "applicable": true
+    },
+    {
+      "name": "navigation-expanded",
+      "applicable": true
+    },
+    {
+      "name": "navigation-collapsed",
+      "applicable": true
+    },
+    {
+      "name": "context-overlay-open",
+      "applicable": true
+    },
+    {
+      "name": "loading",
+      "applicable": false,
+      "reason": "Handled primarily by workspace content."
+    },
+    {
+      "name": "empty",
+      "applicable": false,
+      "reason": "Handled by the active workspace or feature."
+    }
+  ],
+  "responsive": {
+    "desktop": "observed",
+    "mobile": "not-yet-validated",
+    "tablet": "not-yet-validated",
+    "numericBreakpoints": "not-defined"
+  },
+  "accessibility": {
+    "readingOrder": "must-follow-logical-shell-hierarchy",
+    "keyboardFlow": "undocumented",
+    "focusManagement": "undocumented",
+    "landmarks": "undocumented",
+    "navigationLabels": "required-but-not-yet-specified"
+  },
+  "contentRules": [
+    "Global navigation labels and workspace titles must preserve distinct responsibilities.",
+    "Breadcrumb content should communicate workspace context rather than act as primary application navigation."
+  ],
+  "constraints": [
+    "Do not recreate global navigation inside feature content.",
+    "Do not duplicate the global header inside the workspace.",
+    "Do not use breadcrumbs as a replacement for global navigation.",
+    "Keep feature-specific navigation inside the workspace context.",
+    "Do not change the shell hierarchy to accommodate a local feature without an explicit system-level decision.",
+    "Reuse approved Aurora navigation contracts before introducing custom navigation."
+  ],
+  "antiPatterns": [
+    "Creating a second global navigation inside the workspace.",
+    "Duplicating the global header within product content.",
+    "Using breadcrumbs as primary application navigation.",
+    "Allowing an individual feature to redefine the global shell hierarchy.",
+    "Creating a custom shell per module without an explicit architecture decision."
+  ],
+  "productExamples": [
+    {
+      "context": "ERP",
+      "usage": "Vehicle operational workspace",
+      "figmaNodeId": "19471:1938"
+    },
+    {
+      "context": "Video Dashboard",
+      "usage": "Analytics and events workspace",
+      "figmaNodeId": "19920:2384"
+    },
+    {
+      "context": "Videowall",
+      "usage": "Configurable camera monitoring workspace",
+      "figmaNodeId": "19920:3853"
+    }
+  ],
+  "aiInstructions": {
+    "must": [
+      "Reuse Aurora Application Navigation.",
+      "Preserve the hierarchy Global Header -> Global Navigation -> Workspace.",
+      "Keep product-specific content inside the workspace.",
+      "Reuse Breadcrumbs when contextual navigation is required.",
+      "Preserve global navigation outside feature composition."
+    ],
+    "should": [
+      "Use Application Shell as the default structure for authenticated Aurora application workspaces.",
+      "Preserve user context when feature content changes.",
+      "Compose feature-specific patterns inside the workspace."
+    ],
+    "mustNot": [
+      "Invent a new application shell when this pattern satisfies the requirement.",
+      "Recreate global navigation locally.",
+      "Mix global navigation and product navigation responsibilities.",
+      "Invent breakpoint values.",
+      "Invent keyboard, persistence or routing behavior.",
+      "Replace Aurora components with visually similar custom structures."
+    ]
+  },
+  "relatedPatterns": [
+    "product-navigation",
+    "breadcrumb-navigation",
+    "contextual-detail-panel",
+    "selection-side-panel",
+    "tabbed-workspace",
+    "workspace-utility-bar"
+  ],
+  "openQuestions": [
+    "Is Header/Hero formally part of Aurora Core Components?",
+    "How should the shell behave on mobile?",
+    "Is Global Navigation expansion persisted?",
+    "What determines expanded versus collapsed state?",
+    "What is the keyboard navigation model?",
+    "What landmarks and ARIA structure should engineering use?",
+    "How does product-level navigation interact with Global Navigation?",
+    "Is Breadcrumb mandatory for every product screen or contextual?",
+    "Are global overlays allowed to cover navigation?",
+    "What permission rules affect global navigation visibility?"
+  ]
+}
