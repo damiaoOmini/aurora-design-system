@@ -1,0 +1,184 @@
+{
+  "name": "Product Navigation",
+  "id": "product-navigation",
+  "version": "0.1.0",
+  "status": "draft",
+  "classification": {
+    "scope": "core",
+    "category": "navigation",
+    "confidence": "high"
+  },
+  "purpose": "Define how navigation inside an active product or module is organized within the Application Shell, while keeping product-level destinations separate from global application navigation.",
+  "problem": "Without a shared product-navigation pattern, modules can create inconsistent sidebars, mix global and local destinations, misuse submenus, lose active-context clarity, or recreate global navigation inside feature workspaces.",
+  "whenToUse": [
+    "When an active product contains multiple areas, pages or functions that need persistent navigation within the same product context.",
+    "When destinations require a shallow parent-child hierarchy inside a product.",
+    "When product-level navigation must remain available while feature content changes."
+  ],
+  "whenNotToUse": [
+    "To switch between global products or tools.",
+    "As breadcrumb navigation.",
+    "As tabs for switching views inside the same content surface.",
+    "For transient actions, filters or modal flows.",
+    "For sequential process steps."
+  ],
+  "evidence": [
+    {
+      "type": "figma",
+      "nodeId": "19342:543",
+      "observation": "Product-level navigation with Product Item, Product Menu, Product Submenu Item, interaction states and expanded/collapsed menu variants.",
+      "confidence": "high"
+    },
+    {
+      "type": "figma",
+      "nodeId": "19471:1938",
+      "observation": "Product navigation composed inside an ERP application workspace while Global Navigation remains structurally separate.",
+      "confidence": "high"
+    }
+  ],
+  "anatomy": [
+    {
+      "region": "product-identity",
+      "required": false,
+      "purpose": "Identify the active product or module."
+    },
+    {
+      "region": "navigation-items",
+      "required": true,
+      "purpose": "Provide direct navigation to primary product destinations."
+    },
+    {
+      "region": "expandable-groups",
+      "required": false,
+      "purpose": "Group related destinations when hierarchy is required."
+    },
+    {
+      "region": "submenu-items",
+      "required": false,
+      "purpose": "Expose secondary destinations inside an expandable group."
+    }
+  ],
+  "components": {
+    "required": ["application-navigation"],
+    "optional": [],
+    "observedDependencies": [
+      "Navigation / Product item",
+      "Navigation / Product menu",
+      "Navigation / Product submenu item"
+    ]
+  },
+  "compositionRules": [
+    "Product Navigation belongs inside the active product workspace and must remain separate from Global Navigation.",
+    "Product Navigation should contain only destinations relevant to the active product or module.",
+    "Use Product Item for direct destinations and Product Menu only when a real secondary hierarchy exists.",
+    "Product Submenu Items must belong to a parent Product Menu.",
+    "Active state represents the current destination and must remain conceptually separate from Expanded state.",
+    "Prefer the shallowest hierarchy that accurately represents the product information architecture."
+  ],
+  "behavior": {
+    "itemActivation": "observed",
+    "groupExpansion": "observed",
+    "routing": "undocumented",
+    "expansionPersistence": "undocumented",
+    "exclusiveExpansion": "undocumented",
+    "permissionFiltering": "undocumented",
+    "keyboardBehavior": "partially-observed",
+    "focusManagement": "undocumented"
+  },
+  "states": [
+    {"name": "default", "applicable": true},
+    {"name": "hover", "applicable": true},
+    {"name": "focused", "applicable": true},
+    {"name": "active", "applicable": true},
+    {"name": "disabled", "applicable": true},
+    {"name": "expanded", "applicable": true, "appliesTo": "product-menu"},
+    {"name": "collapsed", "applicable": true, "appliesTo": "product-menu"}
+  ],
+  "responsive": {
+    "desktop": "observed",
+    "mobile": "not-yet-validated",
+    "tablet": "not-yet-validated",
+    "numericBreakpoints": "not-defined"
+  },
+  "accessibility": {
+    "visibleFocus": "observed",
+    "logicalHierarchy": "required",
+    "keyboardNavigation": "undocumented",
+    "ariaCurrent": "undocumented",
+    "ariaExpanded": "undocumented",
+    "submenuSemantics": "undocumented"
+  },
+  "contentRules": [
+    "Navigation labels should represent destinations in the product information architecture rather than actions.",
+    "Labels should remain consistent for the same destination across screens of the same product."
+  ],
+  "constraints": [
+    "Do not mix Global Navigation destinations with Product Navigation.",
+    "Do not create submenu items without a parent Product Menu.",
+    "Do not use Product Navigation for transient actions.",
+    "Do not use expansion state as a substitute for active state.",
+    "Do not create additional hierarchy levels without evidence or an explicit system decision.",
+    "Reuse Aurora navigation components before creating custom local navigation.",
+    "Keep Product Navigation inside the active product context."
+  ],
+  "antiPatterns": [
+    "Mixing global products and local feature destinations in the same navigation level.",
+    "Creating submenu hierarchy when no meaningful hierarchy exists.",
+    "Using navigation items as action buttons such as export or submit.",
+    "Creating arbitrary deeply nested navigation levels.",
+    "Showing multiple active destinations without a documented reason."
+  ],
+  "productExamples": [
+    {
+      "context": "ERP",
+      "usage": "Navigation between ERP product areas inside the application workspace.",
+      "figmaNodeId": "19471:1938"
+    }
+  ],
+  "aiInstructions": {
+    "must": [
+      "Keep Product Navigation inside the active product workspace.",
+      "Separate Global Navigation from Product Navigation.",
+      "Reuse Aurora navigation elements.",
+      "Use Product Item for direct destinations.",
+      "Use Product Menu only when secondary hierarchy exists.",
+      "Keep submenu items under their documented parent.",
+      "Preserve Active and Expanded as separate states."
+    ],
+    "should": [
+      "Prefer the shallowest hierarchy that represents the product architecture correctly.",
+      "Keep labels aligned with the product information architecture.",
+      "Preserve a clear active destination.",
+      "Reuse the same navigation structure across screens of the same product."
+    ],
+    "mustNot": [
+      "Invent new navigation levels.",
+      "Mix global products with local destinations.",
+      "Use navigation items as buttons for actions.",
+      "Treat Expanded state as Active state.",
+      "Invent mobile behavior.",
+      "Invent routing, persistence or permission rules.",
+      "Replace Aurora navigation elements with custom visually similar controls."
+    ]
+  },
+  "relatedPatterns": [
+    "application-shell",
+    "breadcrumb-navigation",
+    "tabbed-workspace",
+    "workspace-utility-bar"
+  ],
+  "openQuestions": [
+    "Is Product Identity mandatory for every product?",
+    "Can Product Menu itself be a destination?",
+    "Can multiple Product Menus remain expanded simultaneously?",
+    "Is expansion state persisted?",
+    "What determines the default expanded group?",
+    "How should active state propagate to a parent group?",
+    "What is the keyboard navigation model?",
+    "What ARIA semantics should be used for expandable groups?",
+    "How does Product Navigation behave on Mobile?",
+    "How are permission-restricted destinations handled?",
+    "Is there a maximum supported hierarchy depth?",
+    "Should Product Item, Product Menu and Product Submenu Item receive individual component contracts?"
+  ]
+}
