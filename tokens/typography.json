@@ -1,0 +1,54 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaCollection": "6. Typography",
+    "figmaMode": "Value",
+    "variableCount": 32,
+    "textStyleCount": 44
+  },
+  "fontFamily": {
+    "display": "Inter",
+    "body": "Inter"
+  },
+  "fontWeight": {
+    "regular": "Regular",
+    "regular-italic": "Regular italic",
+    "medium": "Medium",
+    "medium-italic": "Medium italic",
+    "semibold": "Semibold",
+    "semibold-italic": "Semibold italic",
+    "bold": "Bold",
+    "bold-italic": "Bold italic"
+  },
+  "scale": {
+    "text-xs": { "fontSize": 12, "lineHeight": 18, "unit": "px" },
+    "text-sm": { "fontSize": 14, "lineHeight": 20, "unit": "px" },
+    "text-md": { "fontSize": 16, "lineHeight": 24, "unit": "px" },
+    "text-lg": { "fontSize": 18, "lineHeight": 28, "unit": "px" },
+    "text-xl": { "fontSize": 20, "lineHeight": 30, "unit": "px" },
+    "display-xs": { "fontSize": 24, "lineHeight": 32, "unit": "px" },
+    "display-sm": { "fontSize": 30, "lineHeight": 38, "unit": "px" },
+    "display-md": { "fontSize": 36, "lineHeight": 44, "unit": "px" },
+    "display-lg": { "fontSize": 48, "lineHeight": 60, "unit": "px" },
+    "display-xl": { "fontSize": 60, "lineHeight": 72, "unit": "px" },
+    "display-2xl": { "fontSize": 72, "lineHeight": 90, "unit": "px" }
+  },
+  "textStyles": {
+    "Display 2xl": { "fontFamily": "Inter", "fontSize": 72, "lineHeight": 90, "letterSpacingPercent": -2, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Display xl": { "fontFamily": "Inter", "fontSize": 60, "lineHeight": 72, "letterSpacingPercent": -2, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Display lg": { "fontFamily": "Inter", "fontSize": 48, "lineHeight": 60, "letterSpacingPercent": -2, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Display md": { "fontFamily": "Inter", "fontSize": 36, "lineHeight": 44, "letterSpacingPercent": -2, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Display sm": { "fontFamily": "Inter", "fontSize": 30, "lineHeight": 38, "letterSpacingPercent": 0, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Display xs": { "fontFamily": "Inter", "fontSize": 24, "lineHeight": 32, "letterSpacingPercent": 0, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Text xl": { "fontFamily": "Inter", "fontSize": 20, "lineHeight": 30, "letterSpacingPercent": 0, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Text lg": { "fontFamily": "Inter", "fontSize": 18, "lineHeight": 28, "letterSpacingPercent": 0, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Text md": { "fontFamily": "Inter", "fontSize": 16, "lineHeight": 24, "letterSpacingPercent": 0, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Text sm": { "fontFamily": "Inter", "fontSize": 14, "lineHeight": 20, "letterSpacingPercent": 0, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] },
+    "Text xs": { "fontFamily": "Inter", "fontSize": 12, "lineHeight": 18, "letterSpacingPercent": 0, "weights": ["Regular", "Medium", "Semi Bold", "Bold"] }
+  },
+  "notes": {
+    "styleCount": "11 size groups × 4 weights = 44 local text styles",
+    "italicVariables": "Italic weight variables exist in 6. Typography but no italic local text styles were found in the extracted 44 styles.",
+    "figmaStyleNaming": "Figma local styles use 'Semi Bold' as the actual font style name, while the variable is named semibold."
+  }
+}
