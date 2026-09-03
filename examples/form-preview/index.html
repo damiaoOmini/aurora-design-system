@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurora — Form Preview</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="page">
+    <div class="shell">
+      <p class="eyebrow">Aurora Design System · repository-only proof</p>
+      <h1>Configuração de acesso</h1>
+      <p class="subtitle">Defina as preferências e permissões deste usuário.</p>
+
+      <section class="card" aria-label="Configuração de acesso">
+        <div class="section">
+          <h2 class="section-title">Dados do usuário</h2>
+          <div class="field-grid">
+            <div class="field">
+              <label for="name">Nome completo <span class="required">*</span></label>
+              <div class="control">
+                <input id="name" type="text" value="João da Silva" aria-label="Nome completo" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Perfil de acesso <span class="required">*</span></label>
+              <div class="control select-visual" aria-label="Perfil de acesso">
+                <span>Administrador</span>
+                <span class="chevron">⌄</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Unidade</label>
+              <div class="control select-visual" aria-label="Unidade">
+                <span>Unidade João Pessoa</span>
+                <span class="chevron">⌄</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Tipo de acesso</h2>
+          <div class="option-stack" role="radiogroup" aria-label="Tipo de acesso">
+            <label class="option">
+              <input type="radio" name="access" checked />
+              <span><strong>Administrador</strong><span>Acesso às configurações e operações disponíveis para este perfil.</span></span>
+            </label>
+            <label class="option">
+              <input type="radio" name="access" />
+              <span><strong>Operacional</strong><span>Acesso às tarefas de rotina e operação.</span></span>
+            </label>
+            <label class="option">
+              <input type="radio" name="access" />
+              <span><strong>Visualização</strong><span>Acesso para consulta de informações.</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Permissões adicionais</h2>
+          <div class="option-stack">
+            <label class="option">
+              <input type="checkbox" checked />
+              <span><strong>Pode editar registros</strong><span>Permite alterar informações existentes.</span></span>
+            </label>
+            <label class="option">
+              <input type="checkbox" />
+              <span><strong>Pode excluir registros</strong><span>Permite remover registros quando a ação estiver disponível.</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Ações adicionais</h2>
+          <div class="dropdown-row">
+            <div class="dropdown-copy">Exemplo do Dropdown `Button simple` em estado fechado.</div>
+            <button class="btn btn-dropdown" type="button">Mais opções <span class="chevron">⌄</span></button>
+          </div>
+        </div>
+
+        <div class="footer">
+          <button class="btn btn-secondary" type="button">Cancelar</button>
+          <button class="btn btn-primary" type="button">Salvar alterações</button>
+        </div>
+
+        <div class="proof-note">
+          <strong>Limite desta prova:</strong> a composição visual usa somente contratos e tokens documentados no repositório. Interações de Select/Dropdown, validação, semântica completa de grupos, posicionamento de menus e outros comportamentos ainda não documentados não foram inventados nesta implementação.
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
