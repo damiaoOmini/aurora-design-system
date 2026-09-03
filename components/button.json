@@ -1,0 +1,112 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaComponentSet": "Buttons/Button",
+    "figmaNodeId": "3287:427074",
+    "variantCount": 200,
+    "type": "component"
+  },
+  "variantAxes": {
+    "size": ["xs", "sm", "md", "lg", "xl"],
+    "hierarchy": ["Primary", "Secondary", "Tertiary", "Link color", "Link gray"],
+    "state": ["Default", "Hover", "Focused", "Disabled", "Loading"],
+    "iconOnly": [false, true]
+  },
+  "properties": {
+    "iconLeading": { "type": "boolean", "default": true },
+    "iconTrailing": { "type": "boolean", "default": true },
+    "iconLeadingSwap": { "type": "instance-swap" },
+    "iconTrailingSwap": { "type": "instance-swap" },
+    "loadingText": { "type": "boolean", "default": true }
+  },
+  "sizes": {
+    "xs": {
+      "standardHeight": 32,
+      "linkHeight": 20,
+      "standardPadding": { "vertical": 6, "horizontal": 10 },
+      "iconOnlySize": 32,
+      "iconOnlyPadding": 8,
+      "gap": 4,
+      "text": { "token": "text-sm", "size": 14, "lineHeight": 20, "weight": "semibold" }
+    },
+    "sm": {
+      "standardHeight": 36,
+      "linkHeight": 20,
+      "standardPadding": { "vertical": 8, "horizontal": 12 },
+      "iconOnlySize": 36,
+      "iconOnlyPadding": 8,
+      "gap": 4,
+      "text": { "token": "text-sm", "size": 14, "lineHeight": 20, "weight": "semibold" }
+    },
+    "md": {
+      "standardHeight": 40,
+      "linkHeight": 20,
+      "standardPadding": { "vertical": 10, "horizontal": 14 },
+      "iconOnlySize": 40,
+      "iconOnlyPadding": 10,
+      "gap": 4,
+      "text": { "token": "text-sm", "size": 14, "lineHeight": 20, "weight": "semibold" }
+    },
+    "lg": {
+      "standardHeight": 44,
+      "linkHeight": 24,
+      "standardPadding": { "vertical": 10, "horizontal": 16 },
+      "iconOnlySize": 44,
+      "iconOnlyPadding": 12,
+      "gap": [6, 8],
+      "text": { "token": "text-md", "size": 16, "lineHeight": 24, "weight": "semibold" }
+    },
+    "xl": {
+      "standardHeight": 48,
+      "linkHeight": 24,
+      "standardPadding": { "vertical": 12, "horizontal": 18 },
+      "iconOnlySize": 48,
+      "iconOnlyPadding": 14,
+      "gap": 6,
+      "text": { "token": "text-md", "size": 16, "lineHeight": 24, "weight": "semibold" }
+    }
+  },
+  "shape": {
+    "standardRadius": "radius-md",
+    "linkRadius": 0,
+    "additionalRadiusObserved": "radius-xs"
+  },
+  "boundTokens": {
+    "color": [
+      "Colors/Background/bg-brand-solid",
+      "Colors/Background/bg-brand-solid_hover",
+      "Colors/Background/bg-primary",
+      "Colors/Background/bg-primary_hover",
+      "Colors/Border/border-primary",
+      "Colors/Effects/Focus rings/focus-ring",
+      "Colors/Effects/Shadows/shadow-skeumorphic-inner",
+      "Colors/Effects/Shadows/shadow-skeumorphic-inner-border",
+      "Colors/Effects/Shadows/shadow-xs",
+      "Colors/Text/text-brand-secondary (700)",
+      "Colors/Text/text-brand-secondary_hover",
+      "Colors/Text/text-secondary (700)",
+      "Colors/Text/text-secondary_hover",
+      "Colors/Text/text-tertiary (600)",
+      "Colors/Text/text-tertiary_hover",
+      "Colors/Text/text-white"
+    ],
+    "radius": ["radius-md", "radius-xs"],
+    "spacing": ["spacing-xs", "spacing-sm", "spacing-md", "spacing-lg", "spacing-xl"],
+    "typography": [
+      "Font family/font-family-body",
+      "Font size/text-sm",
+      "Font size/text-md",
+      "Font weight/semibold",
+      "Line height/text-sm",
+      "Line height/text-md"
+    ]
+  },
+  "rules": {
+    "doNotInventVariants": true,
+    "doNotInventStates": true,
+    "useSemanticColorTokens": true,
+    "useApprovedSizeContracts": true,
+    "preserveIconOnlySquareDimensions": true,
+    "note": "The component set defines the approved variant axes and token bindings. This contract does not infer application behavior, accessibility semantics, or framework implementation that are not explicitly encoded in Figma."
+  }
+}
