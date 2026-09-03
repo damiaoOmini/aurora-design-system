@@ -1,0 +1,42 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaCollections": ["4. Widths", "5. Containers"],
+    "figmaGridStyleCount": 8,
+    "type": "layout"
+  },
+  "widths": {
+    "width-xxs": { "alias": "Spacing/80 (320px)", "value": 320, "unit": "px" },
+    "width-xs": { "alias": "Spacing/96 (384px)", "value": 384, "unit": "px" },
+    "width-sm": { "alias": "Spacing/120 (480px)", "value": 480, "unit": "px" },
+    "width-md": { "alias": "Spacing/140 (560px)", "value": 560, "unit": "px" },
+    "width-lg": { "alias": "Spacing/160 (640px)", "value": 640, "unit": "px" },
+    "width-xl": { "alias": "Spacing/192 (768px)", "value": 768, "unit": "px" },
+    "width-2xl": { "alias": "Spacing/256 (1,024px)", "value": 1024, "unit": "px" },
+    "width-3xl": { "alias": "Spacing/320 (1,280px)", "value": 1280, "unit": "px" },
+    "width-4xl": { "alias": "Spacing/360 (1,440px)", "value": 1440, "unit": "px" },
+    "width-5xl": { "alias": "Spacing/400 (1,600px)", "value": 1600, "unit": "px" },
+    "width-6xl": { "alias": "Spacing/480 (1,920px)", "value": 1920, "unit": "px" },
+    "paragraph-max-width": { "alias": "Spacing/180 (720px)", "value": 720, "unit": "px" }
+  },
+  "containers": {
+    "container-padding-mobile": { "alias": "Spacing/4 (16px)", "value": 16, "unit": "px" },
+    "container-padding-desktop": { "alias": "Spacing/8 (32px)", "value": 32, "unit": "px" },
+    "container-max-width-desktop": { "alias": "Spacing/320 (1,280px)", "value": 1280, "unit": "px" }
+  },
+  "grids": {
+    "desktop": { "columns": 12, "alignment": "stretch", "gutter": 32, "outerOffset": 112, "unit": "px" },
+    "tablet": { "columns": 6, "alignment": "stretch", "gutter": 32, "outerOffset": 32, "unit": "px" },
+    "mobile": { "columns": 4, "alignment": "stretch", "gutter": 16, "outerOffset": 16, "unit": "px" }
+  },
+  "auxiliaryGrids": {
+    "12-columns-auto": { "columns": 12, "gutter": 32, "unit": "px" },
+    "6-columns-auto": { "columns": 6, "gutter": 32, "unit": "px" },
+    "5-columns-auto": { "columns": 5, "gutter": 32, "unit": "px" },
+    "3-columns-auto": { "columns": 3, "gutter": 32, "unit": "px" },
+    "2-columns-auto": { "columns": 2, "gutter": 32, "unit": "px" }
+  },
+  "notes": {
+    "breakpoints": "Not extracted. Grid style names describe desktop, tablet and mobile configurations but do not define viewport threshold values."
+  }
+}
