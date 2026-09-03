@@ -1,0 +1,100 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaComponentSet": "Radio group item",
+    "figmaNodeId": "124:2838",
+    "variantCount": 144,
+    "type": "component",
+    "scope": "core",
+    "relatedGroupComponent": "Radio group",
+    "relatedGroupNodeId": "1142:87213",
+    "sharedInternalBase": "_Checkbox base"
+  },
+  "variantAxes": {
+    "selected": [false, true],
+    "size": ["sm", "md"],
+    "type": ["Radio button", "Checkbox", "Icon simple", "Icon card", "Avatar", "Payment icon"],
+    "state": ["Default", "Hover", "Focused"],
+    "breakpoint": ["Mobile", "Desktop"]
+  },
+  "combinationPolicy": {
+    "availableVariantCount": 144,
+    "fullCartesianCount": 144,
+    "rule": "All combinations across Selected, Size, Type, State and Breakpoint are represented by the approved component set."
+  },
+  "properties": {
+    "badge": { "type": "boolean", "default": true }
+  },
+  "sizes": {
+    "sm": {
+      "selectionControlSize": 16,
+      "selectionControlDimensions": "16x16",
+      "observedWidths": [343, 768],
+      "observedHeights": [72, 92, 100, 104, 112, 150, 208, 210]
+    },
+    "md": {
+      "selectionControlSize": 20,
+      "selectionControlDimensions": "20x20",
+      "observedWidths": [343, 768],
+      "observedHeights": [82, 114, 130, 172, 236]
+    }
+  },
+  "anatomy": {
+    "sharedBase": ["_Checkbox base"],
+    "common": ["Content", "Text and supporting text", "Text", "Supporting text"],
+    "optionalByType": ["Featured icon", "Avatar", "Payment method icon", "Badge", "Button", "Pricing content", "Subtext"],
+    "selectionIndicator": ["check"],
+    "dependenciesObserved": ["_Checkbox base", "Featured icon", "Buttons/Button", "Avatar", "Payment method icon", "Badge", "_Dot", "icons"]
+  },
+  "typography": {
+    "coreTextSizes": [12, 14, 16, 18],
+    "displaySizesObserved": [30, 36],
+    "weightsObserved": ["regular", "medium", "semibold"],
+    "boundTokens": [
+      "Font family/font-family-body",
+      "Font family/font-family-display",
+      "Font size/text-xs",
+      "Font size/text-sm",
+      "Font size/text-md",
+      "Font size/text-lg",
+      "Font size/display-sm",
+      "Font size/display-md",
+      "Font weight/regular",
+      "Font weight/medium",
+      "Font weight/semibold",
+      "Line height/text-xs",
+      "Line height/text-sm",
+      "Line height/text-md",
+      "Line height/text-lg",
+      "Line height/display-sm",
+      "Line height/display-md"
+    ]
+  },
+  "boundTokens": {
+    "background": ["Colors/Background/bg-brand-solid", "Colors/Background/bg-primary"],
+    "border": ["Colors/Border/border-primary", "Colors/Border/border-secondary", "Colors/Border/border-brand"],
+    "foreground": ["Colors/Foreground/fg-secondary (700)", "Colors/Foreground/fg-white"],
+    "text": ["Colors/Text/text-secondary (700)", "Colors/Text/text-tertiary (600)", "Colors/Text/text-brand-secondary (700)"],
+    "effects": ["Colors/Effects/Focus rings/focus-ring", "Colors/Effects/Shadows/shadow-xs", "Colors/Effects/Shadows/shadow-skeumorphic-inner", "Colors/Effects/Shadows/shadow-skeumorphic-inner-border"],
+    "utility": ["Component colors/Utility/Green/utility-green-500"],
+    "radius": ["radius-xs", "radius-sm", "radius-md", "radius-xl", "radius-full"],
+    "spacing": ["spacing-none", "spacing-xxs", "spacing-xs", "spacing-sm", "spacing-md", "spacing-lg", "spacing-xl", "spacing-2xl"],
+    "primitive": ["Colors/Base/white"]
+  },
+  "relationshipToCheckbox": {
+    "sharesInternalBase": true,
+    "checkboxSourceAlsoContainsRadioType": true,
+    "publicContractDecision": "Radio is documented separately because Aurora has dedicated Radio group item and Radio group component sets with additional types, breakpoint behavior and composition not represented by Checkbox alone."
+  },
+  "rules": {
+    "doNotInventTypes": true,
+    "doNotInventStates": true,
+    "allCartesianVariantsApproved": true,
+    "useSemanticColorTokens": true,
+    "preserveApprovedSelectionControlSizes": true,
+    "preserveBreakpointAxis": true,
+    "treatRadioGroupAsComposition": true,
+    "doNotCollapseIntoCheckboxContract": true,
+    "note": "This contract documents the public Radio group item system. It does not infer single-selection group logic, keyboard navigation, form behavior, accessibility semantics or framework implementation unless separately documented."
+  }
+}
