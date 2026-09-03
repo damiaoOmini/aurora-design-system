@@ -1,0 +1,66 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaComponentSet": "Dropdown menu",
+    "figmaNodeId": "3281:383083",
+    "variantCount": 28,
+    "type": "component",
+    "scope": "core"
+  },
+  "variantAxes": {
+    "type": ["Button simple", "Button advanced", "Button link", "Icon simple", "Icon advanced", "Search simple", "Search advanced", "Integrations", "Account button", "Account avatar", "Account card xs", "Account card sm", "Account card md", "Account breadcrumb"],
+    "open": [false, true]
+  },
+  "combinationPolicy": {
+    "availableVariantCount": 28,
+    "fullCartesianCount": 28,
+    "rule": "All 14 Type × 2 Open combinations are represented by the approved Dropdown menu component set."
+  },
+  "properties": {
+    "scrollbar": {"type":"boolean","default":true},
+    "chevronDropdown": {"type":"boolean","default":true}
+  },
+  "triggerDimensions": {
+    "Icon simple": "20x20",
+    "Icon advanced": "20x20",
+    "Account avatar": "32x32",
+    "Account button": "105x36",
+    "Button simple": "100x36",
+    "Button advanced": "100x36",
+    "Integrations": "84x36",
+    "Search simple": "154x36",
+    "Search advanced": "154x36",
+    "Account card xs": "152x36",
+    "Account card sm": "168x44",
+    "Account card md": "240x56",
+    "Button link": "73x20",
+    "Account breadcrumb": "135x28"
+  },
+  "internalComponentSets": ["_Dropdown menu header", "_Dropdown menu list item", "_Dropdown menu item inset icon", "_Dropdown menu footer", "_Dropdown account list item"],
+  "relatedComponentSets": ["Context menu"],
+  "dependenciesObserved": ["Checkbox", "Avatar", "Buttons/Button", "Buttons/Button utility", "Toggle", "Integration icon", "Status icon", "Avatar label group", "icons"],
+  "typography": {
+    "textSizesObserved": [12,14],
+    "weightsObserved": ["regular","medium","semibold"],
+    "boundTokens": ["Font family/font-family-body", "Font size/text-xs", "Font size/text-sm", "Font weight/regular", "Font weight/medium", "Font weight/semibold", "Line height/text-xs", "Line height/text-sm"]
+  },
+  "boundTokens": {
+    "background": ["Colors/Background/bg-brand-solid","Colors/Background/bg-primary","Colors/Background/bg-primary_alt","Colors/Background/bg-primary_hover","Colors/Background/bg-secondary_alt","Colors/Background/bg-tertiary"],
+    "border": ["Colors/Border/border-primary","Colors/Border/border-secondary","Colors/Border/border-secondary_alt"],
+    "foreground": ["Colors/Foreground/fg-brand-primary (600)","Colors/Foreground/fg-quaternary (400)","Colors/Foreground/fg-quaternary_hover","Colors/Foreground/fg-success-secondary","Colors/Foreground/fg-white"],
+    "text": ["Colors/Text/text-brand-secondary (700)","Colors/Text/text-placeholder","Colors/Text/text-primary (900)","Colors/Text/text-quaternary (500)","Colors/Text/text-secondary (700)","Colors/Text/text-secondary_hover","Colors/Text/text-tertiary (600)"],
+    "effects": ["Colors/Effects/Focus rings/focus-ring","Colors/Effects/Shadows/shadow-xs","Colors/Effects/Shadows/shadow-md_01","Colors/Effects/Shadows/shadow-md_02","Colors/Effects/Shadows/shadow-lg_01","Colors/Effects/Shadows/shadow-lg_02","Colors/Effects/Shadows/shadow-lg_03","Colors/Effects/Shadows/shadow-skeumorphic-inner","Colors/Effects/Shadows/shadow-skeumorphic-inner-border"],
+    "radius": ["radius-xs","radius-sm","radius-md","radius-lg","radius-xl","radius-full"],
+    "spacing": ["spacing-xxs","spacing-xs","spacing-sm","spacing-md","spacing-lg","spacing-xl","spacing-3xl"]
+  },
+  "rules": {
+    "doNotInventTypes": true,
+    "allCartesianVariantsApproved": true,
+    "preserveOpenAxis": true,
+    "useSemanticColorTokens": true,
+    "reuseNestedComponentContracts": true,
+    "doNotTreatTriggerDimensionsAsGlobalTokens": true,
+    "contextMenuIsSeparate": true,
+    "note": "Dropdown menu is a composition with multiple trigger types and nested menu primitives. Reuse approved nested components instead of redefining Checkbox, Avatar, Button or Toggle. Do not infer positioning engine, collision handling, keyboard navigation, dismissal behavior, focus management, ARIA semantics or framework implementation unless separately documented."
+  }
+}
