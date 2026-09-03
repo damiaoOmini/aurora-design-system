@@ -1,0 +1,53 @@
+{
+  "name": "Navigation/Item",
+  "id": "navigation-item",
+  "version": "0.1.0",
+  "status": "draft",
+  "classification": {"scope": "core", "category": "navigation", "confidence": "high"},
+  "source": {"system": "Aurora Design System", "figmaFileKey": "mgndALfRjfTYZtMI7ARgFd", "figmaNodeId": "19254:2595", "componentSet": "Navigation/Item"},
+  "purpose": "Render a Level 1 or Level 2 destination inside Aurora Global Navigation using approved states, iconography and hierarchy spacing.",
+  "properties": {
+    "Label": {"type": "TEXT", "defaultValue": "Navigation item"},
+    "Icon": {"type": "INSTANCE_SWAP", "defaultValue": "Icon / Global navigation / Home"},
+    "Has children": {"type": "BOOLEAN", "defaultValue": true},
+    "Level": {"type": "VARIANT", "defaultValue": "1", "options": ["1", "2"]},
+    "State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Hover", "Active", "Focus", "Disabled"]}
+  },
+  "variantCount": 10,
+  "dimensions": {
+    "common": {"width": 348, "height": 48, "gap": 12, "radius": 8},
+    "level1": {"padding": {"top": 12, "right": 16, "bottom": 12, "left": 16}},
+    "level2": {"padding": {"top": 12, "right": 16, "bottom": 12, "left": 32}},
+    "leadingIcon": {"width": 24, "height": 24},
+    "trailingChevron": {"width": 20, "height": 20},
+    "label": {"fontSize": 14, "lineHeight": 20}
+  },
+  "anatomy": ["Leading icon", "Label", "Trailing chevron when Has children=True"],
+  "states": {
+    "Default": "No state background observed in the base variant.",
+    "Hover": "Uses Aurora bound interaction-state background.",
+    "Active": "Uses Aurora bound interaction-state background.",
+    "Focus": "Uses a visible white bound stroke in the observed variant.",
+    "Disabled": "Observed component opacity approximately 0.48."
+  },
+  "observedIconMappings": [
+    {"label": "Visão geral", "icon": "Icon / Global navigation / Home", "figmaComponentId": "19226:87140"},
+    {"label": "Cadastros", "icon": "Icon / Global navigation / Registration", "figmaComponentId": "19227:87167"},
+    {"label": "Veículos", "icon": "Icon / Global navigation / Registration / Vehicles", "figmaComponentId": "19227:87273"},
+    {"label": "Motoristas", "icon": "Icon / Global navigation / Registration / Drivers", "figmaComponentId": "19227:87192"},
+    {"label": "Empresas", "icon": "Icon / Global navigation / Registration / Customers", "figmaComponentId": "19227:87187"},
+    {"label": "Relatórios gerais", "icon": "Icon / Global navigation / General Reports", "figmaComponentId": "19226:87123"},
+    {"label": "Monitoramento", "icon": "Icon / Global navigation / Monitoring", "figmaComponentId": "19227:565"},
+    {"label": "Risco", "icon": "Icon / Global navigation / Risk", "figmaComponentId": "19227:87283"},
+    {"label": "Telemetria", "icon": "Icon / Global navigation / Telemetry", "figmaComponentId": "19228:571"},
+    {"label": "Frota", "icon": "Icon / Global navigation / Fleet", "figmaComponentId": "19226:87108"},
+    {"label": "Jornada", "icon": "Icon / Global navigation / Journey", "figmaComponentId": "19226:87145"},
+    {"label": "Configurações", "icon": "observed Aurora global-navigation settings icon", "figmaComponentId": "19228:564"}
+  ],
+  "tokenRules": ["Preserve bound Aurora variables for foreground, text, state backgrounds and focus stroke.", "Do not infer universal icon geometry from the 24x24 component frame."],
+  "compositionRules": ["Level 1 uses 16px left padding.", "Level 2 uses 32px left padding.", "Has children=True controls the trailing hierarchy affordance.", "Level 2 is not evidence for Level 3 or deeper hierarchy."],
+  "aiInstructions": {
+    "must": ["Use an approved Level × State combination.", "Use approved Aurora Global Navigation icons.", "Preserve dimensions, padding and hierarchy indentation."],
+    "mustNot": ["Replace icons with letters, emoji or generic glyphs.", "Invent a new state.", "Invent Level 3+.", "Approximate missing icon mappings or state visuals; report the missing dependency instead."]
+  }
+}
