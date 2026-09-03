@@ -1,0 +1,156 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "figmaComponentSet": "Input field",
+    "figmaNodeId": "1090:57817",
+    "variantCount": 294,
+    "type": "component",
+    "scope": "core",
+    "excludedProductVariant": "Input-omnilink"
+  },
+  "variantAxes": {
+    "size": ["sm", "md", "lg"],
+    "type": [
+      "Default",
+      "Leading dropdown",
+      "Trailing dropdown",
+      "Leading text",
+      "Payment input",
+      "Tags inner",
+      "Tags outer",
+      "Trailing button",
+      "Password",
+      "Date and time",
+      "Number counter horizontal",
+      "Number counter vertical",
+      "OTP",
+      "File upload"
+    ],
+    "destructive": [false, true],
+    "state": ["Placeholder", "Filled", "Focused", "Disabled"]
+  },
+  "combinationPolicy": {
+    "availableVariantCount": 294,
+    "fullCartesianCount": 336,
+    "rule": "Do not assume every theoretical combination of Size, Type, Destructive and State exists. Use only combinations represented by the approved component set."
+  },
+  "properties": {
+    "label": { "type": "boolean", "default": true },
+    "hintText": { "type": "boolean", "default": true },
+    "helpIcon": { "type": "boolean", "default": true },
+    "iconSwap": { "type": "instance-swap" },
+    "requiredIndicator": { "type": "boolean", "default": true },
+    "iconLeading": { "type": "boolean", "default": true },
+    "timeSelector": { "type": "boolean", "default": true }
+  },
+  "sizes": {
+    "sm": {
+      "controlHeight": 36,
+      "observedTotalHeights": [86, 92],
+      "textSizes": [12, 14],
+      "typographyNote": "Compact variants may use text-xs; standard field text uses approved Aurora typography bindings."
+    },
+    "md": {
+      "controlHeight": 40,
+      "observedTotalHeights": [92, 94, 98],
+      "textSizes": [14, 16]
+    },
+    "lg": {
+      "controlHeight": 44,
+      "observedTotalHeights": [96, 98, 102],
+      "textSizes": [14, 16]
+    }
+  },
+  "anatomy": {
+    "core": [
+      "Input with label",
+      "Label wrapper",
+      "Input",
+      "Text input"
+    ],
+    "optional": [
+      "Label",
+      "Required indicator",
+      "Hint text",
+      "Help icon",
+      "Leading icon",
+      "Dropdown",
+      "Tags",
+      "Trailing button",
+      "Password controls",
+      "Date/time controls",
+      "Number controls",
+      "OTP controls",
+      "File upload controls"
+    ],
+    "dependenciesObserved": [
+      "Buttons/Button",
+      "Tag",
+      "Help icon",
+      "icons"
+    ]
+  },
+  "typography": {
+    "label": { "size": 14, "weight": "medium", "lineHeight": 20 },
+    "standardInput": { "size": 16, "weight": "regular", "lineHeight": 24 },
+    "supportingText": { "size": 14, "weight": "regular", "lineHeight": 20 },
+    "compactSupportingText": { "size": 12, "weight": "regular" },
+    "boundTokens": [
+      "Font family/font-family-body",
+      "Font size/text-xs",
+      "Font size/text-sm",
+      "Font size/text-md",
+      "Font weight/regular",
+      "Font weight/medium",
+      "Font weight/semibold",
+      "Line height/text-xs",
+      "Line height/text-sm",
+      "Line height/text-md"
+    ]
+  },
+  "boundTokens": {
+    "background": ["Colors/Background/bg-primary"],
+    "border": [
+      "Colors/Border/border-primary",
+      "Colors/Border/border-secondary",
+      "Colors/Border/border-brand",
+      "Colors/Border/border-error",
+      "Colors/Border/border-error_subtle"
+    ],
+    "foreground": [
+      "Colors/Foreground/fg-brand-secondary_alt",
+      "Colors/Foreground/fg-error-secondary",
+      "Colors/Foreground/fg-quaternary (400)",
+      "Colors/Foreground/fg-success-primary"
+    ],
+    "text": [
+      "Colors/Text/text-primary (900)",
+      "Colors/Text/text-secondary (700)",
+      "Colors/Text/text-tertiary (600)",
+      "Colors/Text/text-placeholder",
+      "Colors/Text/text-brand-tertiary (600)",
+      "Colors/Text/text-error-primary (600)"
+    ],
+    "effects": ["Colors/Effects/Shadows/shadow-xs"],
+    "radius": ["radius-sm", "radius-md"],
+    "spacing": [
+      "spacing-none",
+      "spacing-xxs",
+      "spacing-xs",
+      "spacing-sm",
+      "spacing-md",
+      "spacing-lg",
+      "spacing-xl"
+    ],
+    "primitive": ["Colors/Base/white"]
+  },
+  "rules": {
+    "doNotInventTypes": true,
+    "doNotInventStates": true,
+    "doNotAssumeCartesianVariants": true,
+    "useSemanticColorTokens": true,
+    "preserveApprovedControlHeights": true,
+    "keepProductSpecificVariantsSeparate": true,
+    "note": "This contract describes visual and structural decisions encoded in the Aurora Figma component. It does not infer validation logic, input masks, keyboard behavior, HTML input types, accessibility attributes, or framework implementation unless separately documented."
+  }
+}
