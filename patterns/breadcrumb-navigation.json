@@ -1,0 +1,196 @@
+{
+  "name": "Breadcrumb Navigation",
+  "id": "breadcrumb-navigation",
+  "version": "0.1.0",
+  "status": "draft",
+  "classification": {
+    "scope": "core",
+    "category": "navigation",
+    "confidence": "high"
+  },
+  "purpose": "Represent contextual location within a real product hierarchy and return to valid ancestors without replacing Global Navigation or Product Navigation.",
+  "problem": "Prevent invented hierarchy, undocumented route derivation, clickable Current, and use as primary navigation.",
+  "evidence": {
+    "observed": [
+      "Breadcrumbs component set 1122:153: Divider Slash/Chevron; Type Text, Text with line, Button, Account dropdowns; Desktop/Mobile; internal _Breadcrumb button base; Current=True/False; Default/Hover/Focused.",
+      "Observed composition equivalent to Home / Settings / ... / Team, with Team Current=True.",
+      "Breadcrumbs contract observes Dropdown menu/account breadcrumb, Avatar, Radio and icons; dimensions are not tokens or breakpoints."
+    ],
+    "approvedAuroraDecisions": [
+      "Breadcrumbs represent existing information architecture and journey context, never invented hierarchy.",
+      "Exactly one Current is non-navigable.",
+      "Compactation retains Current, Nearest Ancestor and Root before Intermediate Ancestors.",
+      "... represents real omitted ancestors and opens a temporary surface without changing the compacted composition.",
+      "Available space drives adaptation; numeric breakpoints are not defined.",
+      "Keyboard operation and visible focus are required; technical HTML and ARIA remain open."
+    ]
+  },
+  "anatomy": [
+    "Root",
+    "Divider",
+    "Ancestor(s)",
+    "Collapsed Hierarchy (...)",
+    "Nearest Ancestor",
+    "Current"
+  ],
+  "components": {
+    "required": [
+      "breadcrumbs"
+    ],
+    "observedDependencies": [
+      "_Breadcrumb button base",
+      "Dropdown menu/account breadcrumb",
+      "Avatar",
+      "Radio",
+      "icons"
+    ]
+  },
+  "compositionRules": [
+    "Root is the first relevant contextual level and is Home only when Home is the real root.",
+    "Ancestors are navigable only when a valid destination exists.",
+    "Exactly one Current uses Current=True semantically and does not navigate.",
+    "Do not set an arbitrary maximum hierarchy depth.",
+    "Compact Intermediate Ancestors before Root, Nearest Ancestor or Current.",
+    "... represents only real omitted ancestors.",
+    "Opening ... reveals omitted ancestors in a temporary surface without altering current compactation.",
+    "Reuse existing Aurora Dropdown/Menu composition when applicable; do not create a dedicated new component when an existing composition satisfies the need."
+  ],
+  "behavior": {
+    "root": "context-dependent; Home is not mandatory",
+    "ancestors": "navigable only with valid destination",
+    "current": "exactly one; non-navigable",
+    "compactation": "space-driven",
+    "collapsedHierarchy": "keyboard-accessible interactive control revealing real omitted ancestors; valid destinations remain navigable",
+    "accountDropdowns": "existing visual composition; switching, permissions, selected semantics and context switching undocumented and outside Pattern v0"
+  },
+  "variants": {
+    "divider": {
+      "approved": [
+        "Slash",
+        "Chevron"
+      ],
+      "selectionCriterion": "undocumented",
+      "doesNotChange": [
+        "hierarchy",
+        "navigability",
+        "Current",
+        "compactation"
+      ]
+    },
+    "type": {
+      "approved": [
+        "Text",
+        "Button",
+        "Text with line",
+        "Account dropdowns"
+      ],
+      "selectionCriterion": "undocumented",
+      "accountDropdowns": "visual composition exists; behavior undocumented"
+    }
+  },
+  "responsive": {
+    "desktop": "observed",
+    "mobile": "observed",
+    "numericBreakpoints": "not-defined",
+    "rule": "Adapt to available space and compact before removing relevant context.",
+    "retentionPriority": [
+      "Current",
+      "Nearest Ancestor",
+      "Root",
+      "Intermediate Ancestors"
+    ]
+  },
+  "accessibility": {
+    "navigableAncestors": [
+      "keyboard reachable",
+      "visible focus",
+      "Enter activates valid destination"
+    ],
+    "current": [
+      "communicates current location",
+      "does not navigate"
+    ],
+    "collapsedHierarchy": [
+      "keyboard reachable",
+      "Enter/Space reveals omitted ancestors",
+      "temporary surface supports keyboard navigation",
+      "focus returns to ... when closed"
+    ],
+    "focusOrder": "logical hierarchy order",
+    "assistiveTechnology": [
+      "contextual navigation",
+      "hierarchy order",
+      "ancestor destinations",
+      "current location"
+    ],
+    "technicalImplementation": "HTML and ARIA attributes undocumented"
+  },
+  "constraints": [
+    "Do not replace Global Navigation or Product Navigation.",
+    "Do not invent numeric breakpoints, hierarchy limits, route mapping, or Account dropdown behavior.",
+    "Do not choose Type or Divider by visual preference.",
+    "Do not duplicate visual details owned by components/breadcrumbs."
+  ],
+  "antiPatterns": [
+    "Invent levels from screen appearance.",
+    "Use ... without omitted real ancestors.",
+    "Make Current clickable.",
+    "Use Breadcrumb as main menu.",
+    "Hide ancestors without space necessity.",
+    "Choose Chevron as more modern or Button as better on mobile.",
+    "Map /frota/veiculos/123 without documented route mapping.",
+    "Add account selector only because it exists in component set."
+  ],
+  "aiInstructions": {
+    "must": [
+      "Represent real contextual hierarchy.",
+      "Keep exactly one non-navigable Current.",
+      "Navigate ancestors only with valid destinations.",
+      "Preserve hierarchy order.",
+      "Compact only when space requires.",
+      "Prioritize Current, Nearest Ancestor and Root.",
+      "Use ... only for real omitted ancestors.",
+      "Provide keyboard equivalence and visible focus.",
+      "Reuse Aurora components."
+    ],
+    "should": [
+      "Prefer full hierarchy when space permits.",
+      "Compact only when necessary.",
+      "Preserve established product Type and Divider.",
+      "Keep Type and Divider consistent."
+    ],
+    "mustNot": [
+      "Invent levels.",
+      "Derive Breadcrumbs from URL/routes without documented rule.",
+      "Make Current clickable.",
+      "Replace Global or Product Navigation.",
+      "Use ... decoratively.",
+      "Remove levels randomly.",
+      "Invent maximum levels or numeric breakpoints.",
+      "Choose Type/Divider aesthetically.",
+      "Assume Account dropdown behavior.",
+      "Insert Home without real root.",
+      "Invent HTML/ARIA implementation."
+    ]
+  },
+  "relatedPatterns": [
+    "application-shell",
+    "global-navigation",
+    "product-navigation"
+  ],
+  "openQuestions": [
+    "Official Text/Button/Text with line criterion.",
+    "Official Slash/Chevron criterion.",
+    "Account dropdown semantics and behavior.",
+    "Official numeric breakpoints.",
+    "Specific ARIA implementation rules.",
+    "Route to breadcrumb mapping."
+  ],
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "status": "draft",
+      "summary": "Initial Breadcrumb Navigation Pattern Contract v0."
+    }
+  ]
+}
