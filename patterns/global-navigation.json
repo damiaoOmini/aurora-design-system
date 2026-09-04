@@ -1,7 +1,7 @@
 {
   "name": "Global Navigation",
   "id": "global-navigation",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft",
   "classification": {
     "scope": "core",
@@ -33,6 +33,11 @@
       "type": "decided",
       "source": "DIF-guided Aurora decision",
       "description": "Explicit expand/collapse control; expanded first access; user preference persistence; independent group expansion; separation of expansion and navigation actions; active child preserves parent context; authorization controls availability; no user-configurable order in Core; keyboard accessibility requirements; future individual contracts for Navigation/Global, Navigation/Group and Navigation/Item."
+    },
+    {
+      "type": "decided",
+      "source": "Approved Aurora v0 decision",
+      "description": "Persistent Expanded, Persistent Collapsed and Temporary Expanded. Temporary expansion is triggered by pointer or focus, overlays the workspace, uses 110ms enter delay and 220ms leave/grace period; Persistent Expanded participates in layout. Structural duration is 180ms, fast duration is 120ms, easing is cubic-bezier(.2,0,0,1), reduced motion preserves functionality without spatial animation, keyboard is equivalent to pointer, and touch does not depend on hover. These values were not extracted from Figma."
     }
   ],
   "whenToUse": [
@@ -52,8 +57,14 @@
     "Active Context"
   ],
   "components": {
-    "required": ["application-navigation"],
-    "observedDependencies": ["Navigation/Global", "Navigation/Group", "Navigation/Item"]
+    "required": [
+      "application-navigation"
+    ],
+    "observedDependencies": [
+      "Navigation/Global",
+      "Navigation/Group",
+      "Navigation/Item"
+    ]
   },
   "compositionRules": [
     "Global Navigation belongs to Application Shell and must not be recreated by individual features.",
@@ -69,7 +80,7 @@
     "Reuse approved Aurora navigation components and states."
   ],
   "behavior": {
-    "expandCollapseControl": "An explicit control inside Global Navigation toggles Expanded and Collapsed modes. Hover must not be the primary expansion mechanism.",
+    "expandCollapseControl": "The explicit control chooses and persists Expanded or Collapsed. Pointer/focus may create Temporary Expanded from Persistent Collapsed without overwriting the preference.",
     "initialState": "Expanded on first access when no valid user preference exists.",
     "preferencePersistence": "Persist the authenticated user's Expanded/Collapsed preference between sessions when technically available; otherwise preserve it for the current session.",
     "userControl": "Users may keep Global Navigation collapsed as a presentation preference without changing information architecture.",
@@ -79,7 +90,12 @@
     "authorization": "Authorization determines destination availability. Business permission rules remain product/system responsibilities and must not be invented by the pattern.",
     "ordering": "Global destination ordering is system/product-defined and is not user-configurable in Core v0.1.",
     "routing": "undocumented",
-    "automaticExpansion": "undocumented"
+    "persistentExpanded": "Participates in Application Shell layout and remains expanded when pointer or focus leaves.",
+    "persistentCollapsed": "Participates in layout at compact width and may expand temporarily by pointer or keyboard focus.",
+    "temporaryExpanded": "Triggered from Persistent Collapsed by pointer or keyboard focus; overlays the workspace without reflow and returns after both pointer and focus leave.",
+    "pointer": "Enter delay 110ms; leave/grace period 220ms; re-entry cancels pending collapse.",
+    "keyboard": "Focus entry is equivalent to pointer entry; focus exit returns to Persistent Collapsed after the grace period unless pointer remains inside.",
+    "touch": "Must use the explicit control and must not depend on hover."
   },
   "states": [
     "default",
@@ -90,7 +106,8 @@
     "group-expanded",
     "group-collapsed",
     "navigation-expanded",
-    "navigation-collapsed"
+    "navigation-collapsed",
+    "temporary-expanded"
   ],
   "responsive": {
     "desktop": "observed",
@@ -100,7 +117,8 @@
     "numericBreakpoints": "not-defined",
     "observedExpandedWidth": "380px",
     "observedCollapsedWidth": "56px",
-    "note": "Observed component widths are not viewport breakpoints."
+    "note": "Observed component widths are not viewport breakpoints.",
+    "touch": "explicit-control-required; hover-not-required"
   },
   "accessibility": {
     "requirements": [
@@ -111,7 +129,10 @@
       "The navigation must not create keyboard traps.",
       "Expandable controls must expose their expanded/collapsed state semantically.",
       "The current destination must expose its state semantically.",
-      "All interactive elements require accessible names."
+      "All interactive elements require accessible names.",
+      "Keyboard focus entering Persistent Collapsed must provide the same Temporary Expanded outcome as pointer entry.",
+      "When focus and pointer leave Temporary Expanded, return to Persistent Collapsed after the approved grace period.",
+      "Reduced motion must preserve functionality and expose the final state without spatial animation."
     ],
     "keyboardArrowModel": "not-yet-specified",
     "ariaRolesAndAttributes": "technical specification pending accessibility/engineering validation",
@@ -131,7 +152,9 @@
     "Do not treat Expanded as equivalent to Active.",
     "Do not use hover as the sole or primary expand/collapse mechanism.",
     "Do not invent responsive transformations, routing, permission logic or technical ARIA details not yet specified.",
-    "Do not expose unauthorized destinations as available navigation unless a product-specific discovery/upsell requirement explicitly defines that behavior."
+    "Do not expose unauthorized destinations as available navigation unless a product-specific discovery/upsell requirement explicitly defines that behavior.",
+    "Temporary Expanded must overlay the workspace; Persistent Expanded must participate in layout.",
+    "Touch interaction must not depend on hover."
   ],
   "antiPatterns": [
     "A feature instantiates its own Global Navigation.",
@@ -141,7 +164,10 @@
     "Expanded state is styled as if it were the active destination.",
     "Hover-only expansion hides navigation from keyboard or touch users.",
     "A single interaction target simultaneously navigates and expands a parent group.",
-    "Users can arbitrarily reorder the Core global information architecture."
+    "Users can arbitrarily reorder the Core global information architecture.",
+    "Temporary Expanded shifts the workspace layout.",
+    "Pointer offers Temporary Expanded without keyboard-focus equivalence.",
+    "Touch requires hover to reveal navigation."
   ],
   "productExamples": [
     {
@@ -166,7 +192,12 @@
       "Preserve user Expanded/Collapsed preference when the implementation supports persistence.",
       "Keep group expansion independent.",
       "Keep Active and Expanded semantically distinct.",
-      "Maintain keyboard operability and visible focus."
+      "Maintain keyboard operability and visible focus.",
+      "Use Temporary Expanded from Persistent Collapsed for pointer and keyboard focus.",
+      "Overlay the workspace during Temporary Expanded and participate in layout during Persistent Expanded.",
+      "Apply Aurora v0 motion values: 110ms enter delay, 220ms leave/grace period, 180ms structural duration, 120ms fast duration and cubic-bezier(.2,0,0,1).",
+      "Preserve functionality under reduced motion with instant, non-spatial state changes.",
+      "Require explicit control on touch instead of hover."
     ],
     "should": [
       "Prefer the shallowest supported global hierarchy.",
@@ -178,12 +209,15 @@
       "Recreate Global Navigation inside a feature.",
       "Mix product-local destinations with global destinations.",
       "Invent Level 3 or deeper hierarchy.",
-      "Invent tablet, mobile, drawer or overlay behavior.",
+      "Invent tablet, mobile or reduced-viewport drawer behavior.",
       "Treat observed 380px and 56px widths as breakpoints.",
       "Invent routing or business permission rules.",
       "Use hover as the sole expansion mechanism.",
       "Make Core navigation order user-configurable.",
-      "Invent exact ARIA implementation details before accessibility/engineering validation."
+      "Invent exact ARIA implementation details before accessibility/engineering validation.",
+      "Shift workspace layout during Temporary Expanded.",
+      "Require hover for touch interaction.",
+      "Provide pointer-only Temporary Expanded without keyboard-focus equivalence."
     ]
   },
   "relatedPatterns": [
@@ -197,5 +231,23 @@
     "What is the validated Global Navigation behavior on tablet?",
     "What is the validated Global Navigation behavior on mobile?",
     "Should reduced viewports use an overlay, drawer or another navigation presentation after responsive validation?"
-  ]
+  ],
+  "motion": {
+    "version": "Aurora v0",
+    "provenance": "Approved Aurora decision; values were not extracted from Figma.",
+    "duration": {
+      "structural": "180ms",
+      "fast": "120ms",
+      "instant": "0ms"
+    },
+    "delay": {
+      "enter": "110ms",
+      "leaveGrace": "220ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(.2,0,0,1)"
+    },
+    "reducedMotion": "Preserve interaction outcomes and final-state communication; use instant state changes without spatial animation.",
+    "principle": "Motion communicates transitions and is never required to understand state."
+  }
 }

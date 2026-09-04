@@ -2,7 +2,7 @@
 
 ## Status
 
-- **Version:** 0.1.0
+- **Version:** 0.2.0
 - **Status:** Draft
 - **Scope:** Core
 - **Category:** Navigation
@@ -21,7 +21,8 @@ Without a dedicated contract, teams or AI agents may recreate the global navigat
 - **Figma `19240:24569` — Global Navigation V2:** Navigation/Item Level 1 and Level 2; Default, Hover, Active, Focus and Disabled states; Navigation/Group Expanded true/false; Navigation/Global Expanded true/false.
 - **Figma `19278:327` — Notifications Open:** Header/Hero, Navigation/Global and workspace remain part of the Application Shell while a notification panel overlays the workspace.
 - **Figma `19471:1938` — ERP:** confirms Global Navigation in the shell and a separate Product Navigation inside the ERP workspace.
-- **DIF-guided Aurora decision:** explicit expansion control, expanded first access, user preference persistence, independent group expansion, separation of expansion/navigation actions, parent-context handling for active children, authorization-driven availability, fixed Core ordering, keyboard accessibility requirements and future individual contracts for the observed navigation components.
+- **DIF-guided Aurora decisions:** explicit expansion control, expanded first access, user preference persistence, independent group expansion, separation of expansion/navigation actions, parent-context handling for active children, authorization-driven availability, fixed Core ordering, keyboard accessibility requirements and future individual contracts for the observed navigation components.
+- **Approved Aurora v0 decision:** Persistent Expanded, Persistent Collapsed and Temporary Expanded; temporary expansion by pointer or focus overlays the workspace, while persistent expansion participates in layout. Motion uses 110 ms enter delay, 220 ms leave/grace period, 180 ms structural duration, 120 ms fast duration and `cubic-bezier(.2,0,0,1)`. These values are Aurora v0 decisions, not values extracted from Figma.
 
 Observed dimensions such as **380 px expanded** and **56 px collapsed** describe component states. They are not viewport breakpoints.
 
@@ -87,7 +88,42 @@ Do not use it for:
 
 ### Expand / Collapse
 
-Use an explicit control within Global Navigation to toggle `Expanded` and `Collapsed`. Hover must not be the primary mechanism because the interaction must remain predictable for mouse, keyboard and touch contexts.
+Global Navigation has three approved interaction states:
+
+- **Persistent Expanded:** selected through the explicit control; participates in the Application Shell layout.
+- **Persistent Collapsed:** selected through the explicit control; remains compact until explicit or temporary expansion.
+- **Temporary Expanded:** available from Persistent Collapsed when pointer or keyboard focus enters the navigation; overlays the workspace and does not reflow it.
+
+The explicit control remains the mechanism for choosing and persisting Expanded or Collapsed. Pointer/focus expansion is temporary and must not overwrite the user's persistent preference.
+
+### Temporary Expansion
+
+- Pointer entry starts a **110 ms enter delay** before Temporary Expanded.
+- Pointer exit starts a **220 ms leave/grace period** before returning to Persistent Collapsed.
+- If the pointer re-enters during the grace period, pending collapse is cancelled.
+- Keyboard focus entering the navigation produces the same Temporary Expanded result without requiring pointer hover.
+- Temporary Expanded remains open while pointer or focus remains within the navigation.
+- When both pointer and focus leave, it returns to Persistent Collapsed after the grace period.
+- If the navigation is Persistent Expanded, pointer or focus exit must not collapse it.
+- On touch, Temporary Expanded must not depend on hover; use the explicit expand/collapse control.
+
+### Layout Participation
+
+- Persistent Expanded participates in layout.
+- Persistent Collapsed participates in layout at its compact width.
+- Temporary Expanded overlays the workspace and must not shift workspace layout.
+
+### Motion
+
+- Structural expansion and contraction: **180 ms**.
+- Fast internal feedback: **120 ms**.
+- Easing: **cubic-bezier(.2,0,0,1)**.
+- Enter delay: **110 ms**.
+- Leave/grace period: **220 ms**.
+- Motion communicates state change; it must not be required to understand the resulting state.
+- Under `prefers-reduced-motion: reduce`, preserve all interaction outcomes and use an instant state change without spatial animation.
+
+These values are approved Aurora v0 decisions. They were not extracted from Figma.
 
 ### Initial State
 
@@ -126,7 +162,6 @@ Core Global Navigation ordering is system/product-defined and not configurable b
 ### Still Undocumented
 
 - routing implementation;
-- automatic expansion behavior beyond the explicit control;
 - technical permission-resolution logic.
 
 ## States
@@ -142,11 +177,13 @@ Observed and approved states:
 - Group Collapsed
 - Navigation Expanded
 - Navigation Collapsed
+- Temporary Expanded
 
 ## Responsive Behavior
 
 - **Desktop:** observed and supported by product evidence.
 - **Tablet:** not yet validated.
+- **Touch:** must use the explicit control and must not depend on hover.
 - **Mobile:** generic Aurora navigation components include mobile variants, but Global Navigation product behavior is not yet validated.
 - **Reduced viewport overlay/drawer:** not defined.
 - **Numeric breakpoints:** not defined.
@@ -158,6 +195,9 @@ Do not interpret the observed 380 px and 56 px component widths as responsive br
 Current requirements:
 
 - all destinations and controls must be operable without a mouse;
+- keyboard focus entering Persistent Collapsed must provide the same Temporary Expanded outcome as pointer entry;
+- focus leaving must return Temporary Expanded to Persistent Collapsed after the approved grace period, unless pointer remains within the navigation;
+- reduced motion must preserve functionality and expose the final state without spatial animation;
 - interactive controls must expose visible focus;
 - Tab order must follow a logical navigation sequence;
 - activation must follow the semantic behavior of the native control used;
@@ -186,6 +226,8 @@ Do not place transient actions such as `Export`, `Save`, `Add` or `Apply filter`
 - keep Global Navigation inside Application Shell;
 - separate global and product-local navigation;
 - use an explicit expand/collapse control;
+- use Temporary Expanded by pointer or focus only from Persistent Collapsed;
+- overlay the workspace during Temporary Expanded and participate in layout during Persistent Expanded;
 - start Expanded on first access when no preference exists;
 - preserve the user's navigation presentation preference when possible;
 - allow Navigation Groups to expand independently;
@@ -198,11 +240,12 @@ Do not place transient actions such as `Export`, `Save`, `Add` or `Apply filter`
 - recreate Global Navigation inside individual features;
 - mix Product Navigation destinations with global destinations;
 - create Level 3 or deeper hierarchy without evidence and approval;
-- use hover as the sole expansion mechanism;
+- make touch interaction depend on hover;
+- use pointer expansion without keyboard-focus equivalence;
 - treat `Expanded` as equivalent to `Active`;
 - make a single control both navigate and expand a group;
 - use Global Navigation as an action menu;
-- invent tablet, mobile, drawer or overlay behavior;
+- invent tablet, mobile or reduced-viewport drawer behavior;
 - invent routing or business permission rules;
 - make Core global ordering user-configurable;
 - invent exact ARIA implementation before Accessibility/Engineering validation.
@@ -246,7 +289,8 @@ This confirms that contextual overlays can coexist with Global Navigation withou
 - preserve the user's Expanded/Collapsed preference when implementation supports persistence;
 - keep group expansion independent;
 - keep Active and Expanded semantically distinct;
-- maintain keyboard operability and visible focus.
+- maintain keyboard operability and visible focus;
+- apply the approved Aurora v0 motion timings and reduced-motion behavior.
 
 ### Should
 
@@ -260,16 +304,17 @@ This confirms that contextual overlays can coexist with Global Navigation withou
 - recreate Global Navigation inside a feature;
 - mix product-local destinations with global destinations;
 - invent Level 3 or deeper hierarchy;
-- invent tablet, mobile, drawer or overlay behavior;
+- invent tablet, mobile or reduced-viewport drawer behavior;
 - treat 380 px or 56 px as breakpoints;
 - invent routing or business permission rules;
-- use hover as the sole expansion mechanism;
+- make touch interaction depend on hover;
+- omit keyboard-focus equivalence for Temporary Expanded;
 - make Core ordering user-configurable;
 - invent exact ARIA implementation details before validation.
 
 ## Known Limitations
 
-The current contract is strong for desktop structure, hierarchy, states and separation of responsibilities. Responsive product behavior and the complete technical accessibility model remain incomplete.
+The current contract is strong for desktop structure, hierarchy, interaction states, approved Aurora v0 motion and separation of responsibilities. Tablet/mobile product behavior and the complete technical accessibility model remain incomplete.
 
 ## Open Questions
 
@@ -286,6 +331,10 @@ The current contract is strong for desktop structure, hierarchy, states and sepa
 - `tabbed-workspace`
 
 ## Version History
+
+### 0.2.0 — Draft
+
+Added approved Aurora v0 Motion and Interaction decisions for Persistent Expanded, Persistent Collapsed and Temporary Expanded, including layout participation, overlay behavior, pointer/focus equivalence, touch behavior, timing, easing and reduced motion. Values are Aurora decisions and were not extracted from Figma.
 
 ### 0.1.0 — Draft
 

@@ -1,0 +1,46 @@
+{
+  "source": {
+    "system": "Aurora Design System",
+    "version": "Aurora v0",
+    "type": "approved-decision",
+    "provenance": "Values are approved Aurora v0 decisions and were not extracted from Figma."
+  },
+  "motion": {
+    "duration": {
+      "instant": {
+        "value": "0ms",
+        "usage": "Reduced-motion state changes."
+      },
+      "fast": {
+        "value": "120ms",
+        "usage": "Fast internal feedback."
+      },
+      "structural": {
+        "value": "180ms",
+        "usage": "Structural expansion and contraction."
+      }
+    },
+    "delay": {
+      "enter": {
+        "value": "110ms",
+        "usage": "Intent delay before temporary expansion."
+      },
+      "leaveGrace": {
+        "value": "220ms",
+        "usage": "Grace period before temporary collapse."
+      }
+    },
+    "easing": {
+      "standard": {
+        "value": "cubic-bezier(.2,0,0,1)",
+        "usage": "Approved standard transition curve."
+      }
+    },
+    "preference": {
+      "reducedMotion": {
+        "duration": "{motion.duration.instant}",
+        "behavior": "Preserve interaction outcomes and final-state communication; remove spatial animation."
+      }
+    }
+  }
+}
