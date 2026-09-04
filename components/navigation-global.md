@@ -7,6 +7,14 @@
 - Confidence: `high`
 - Figma component set: `19257:2729`
 
+## Visual reference
+
+![Navigation/Global — Expanded and Collapsed](../previews/components/navigation-global/reference.png)
+
+The image above is visual evidence for this contract. It does not replace the structured contract, tokens or assets, and must not be used to infer undocumented behavior.
+
+[Open preview documentation](../previews/components/navigation-global/README.md)
+
 ## Purpose
 `Navigation/Global` is Aurora's persistent global application navigation component. It provides two approved visual compositions: expanded and collapsed.
 
